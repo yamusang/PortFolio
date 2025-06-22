@@ -1,0 +1,119 @@
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    box-shadow: 0px 0.7142857143rem 1.4285714286rem 0 rgba(15, 16, 16, 0.3);
+}
+
+
+html, body, div, a, h1, ul, li, header, nav {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+header {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+html {
+    width: 100%;
+    min-width: 71.4285714286rem;
+    font-size: 14px;
+    color: #121212;
+}
+
+.top-nav {
+    background: #04152b;
+    height: 30px;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    box-shadow: 0px 0.7142857143rem 1.4285714286rem 0 rgba(15, 16, 16, 0.3);
+}
+
+
+.top-nav > ul {
+    display: flex;
+    width: 71.4285714286rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.header-wrap > div {
+    width: 71.4285714286rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+.header-wrap .logo > a {
+    display: block;
+    width: 8.5714285714rem;
+    height: 3.0714285714rem;
+    margin: 1.821rem 0;
+    background: url(https://www.ncdinos.com/assets/images/logo-89b7b3780358b9ebce0ce8b015097d41.png) no-repeat center center;
+    background-size: 100%;
+}
+
+.hidden {
+    font-size: 0;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+}
+
+.top-nav li.sns-wrap{
+    position: absolute;
+    right: 0;
+}
+
+.header-wrap{
+    display: flex;
+    width: 100%;
+    background: #071d3d;
+}
+
+.header-wrap > div{
+    display: flex;
+}
+
+.menu-wrap > ul{
+    display: flex;
+    width: 100%;
+}
+
+.menu-wrap > ul:hover {
+    color: bisque;
+}
+
+.menu > li { 
+    position: relative;
+    box-sizing: border-box;
+    line-height: 80px;
+    margin-right: 40px;
+}
