@@ -106,13 +106,8 @@ a{
     width: 100%;
 }
 
-.menu-wrap > ul:hover {
-    color: bisque;
-}
-
 .menu > li { 
     position: relative;
-    box-sizing: border-box;
     line-height: 80px;
     margin-right: 40px;
 }
