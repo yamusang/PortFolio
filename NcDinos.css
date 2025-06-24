@@ -116,10 +116,6 @@ a{
     color: bisque;
 }
 
-.menu:hover + .menu>a{
-    color: bisque;
-}
-
 .hidden-div {
     display: none;
     position: absolute;
@@ -130,4 +126,4 @@ a{
     width: 100%;
     height: 400px;
     background-color: #071d3d;
-  }
+}
