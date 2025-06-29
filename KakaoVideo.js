@@ -7,13 +7,10 @@ const headers = {
 }
 const query = '트와이스'
 const url = `https://dapi.kakao.com/v2/search/vclip?query=${query}&sort=recency`
-let result 
 async function loadVideo(){
     try{
         const response = await fetch(url, headers)
         const data = await response.json()
-        console.log(data);
-        result = data
         printVideo(data.documents,10)
     }catch(error){
         console.error('오류:',error)
@@ -21,17 +18,17 @@ async function loadVideo(){
 }
 
 loadVideo().then(()=>{
-    console.log('result:', result)
-    console.log('result:', result.documents[0].url)
-    
+    console.log('비동기 동작 후')
 })
 
-function printVideo(docs,count){ // 임의로 정한 변수(인자)
+console.log('비동기 동작중')
+
+function printVideo(docs,count){
     const ul = document.getElementById('kakaoVideo')
     for(let i = 0; i < count; i ++){
-        console.log(docs[i].url)
         const li = document.createElement('li')
-        li.innerHTML=`<video src="${docs[i].url}" width="400px" height="400px" preload controls autoplay loop playsinline>`
+        const uturl = docs[i].url.slice(0,23)+'embed/'+docs[i].url.slice(-11)
+        li.innerHTML=`<iframe width="560" height="315" src="${uturl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
         ul.appendChild(li)
     }
 }

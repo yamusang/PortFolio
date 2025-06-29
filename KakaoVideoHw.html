@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>카카오비디오</title>
+    <style>
+
+
+    </style>
+    <link rel="stylesheet" href="NcDinos.css">
+  </head>
+  <body>
+    <header>
+      <nav class="top-nav">
+        <ul>
+          <li>
+            <a onclick="ticket()" style="cursor: pointer">티켓</a>
+          </li>
+          <li>
+            <a href="https://store.ncdinos.com/">팀스토어</a>
+          </li>
+          <li>
+            <a href="https://www.ncdinospodshop.com/">POD샵</a>
+          </li>
+          <li class="sns-wrap">
+            <a
+              href="https://www.ncdinos.com/auth/login.do"
+              style="cursor: pointer"
+              >로그인</a
+            >
+            <a
+              href="https://www.ncdinos.com/auth/join.do"
+              style="cursor: pointer"
+              >회원가입</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="header-wrap">
+        <div>
+          <h1 class="logo">
+            <a href="https://www.ncdinos.com/homepage.do" class="hidden"
+              >NC Dinos</a
+            >
+          </h1>
+          <nav class="menu-wrap">
+            <ul class="menu">
+              <li>
+                <a href="https://www.ncdinos.com/dinos/intro.do">다이노스</a>
+              </li>
+              <li>
+                <a href="https://www.ncdinos.com/story/photo.do">스토리</a>
+              </li>
+              <li>
+                <a href="https://www.ncdinos.com/game/majorSchedule.do"
+                  >경기정보</a
+                >
+              </li>
+              <li>
+                <a href="https://www.ncdinos.com/record/majorRank.do">기록실</a>
+              </li>
+              <li>
+                <a href="https://www.ncdinos.com/player/all/list.do">선수단</a>
+              </li>
+              <li>
+                <a href="https://www.ncdinos.com/fan/rally/list.do">팬</a>
+              </li>
+              <li>
+                <a href="https://www.ncdinos.com/junior/index.do"
+                  >주니어 다이노스</a
+                >
+              </li>
+            </ul>
+            <div class="hidden-div">
+              <div>
+                <ul>
+                  1
+                  <li>1</li>
+                  <li>3</li>
+                </ul>
+              </div>
+              <div>2</div>
+              <div>3</div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div id="root">
+      <ul id="kakaoVideo"></ul>
+    </div>
+    <script>
+      const ticket = () => {
+        window.open(
+          "https://www.ncdinos.com/auth/ticket.do",
+          "티켓",
+          "width=480,height=650"
+        );
+      };
+      const REST_API_KEY = "1d62c9cf1a2869895c4e52f2998100a2";
+      const headers = {
+        method: "GET",
+        headers: {
+          Authorization: `KakaoAK ${REST_API_KEY}`,
+        },
+      };
+      const query = "NCDinos";
+      const url = `https://dapi.kakao.com/v2/search/vclip?query=${query}&sort=recency`;
+      async function loadVideo() {
+        try {
+          const response = await fetch(url, headers);
+          const data = await response.json();
+          printVideo(data.documents, 10);
+        } catch (error) {
+          console.error("오류:", error);
+        }
+      }
+
+      loadVideo().then(() => {
+        console.log("비동기 후");
+      });
+
+      console.log("비동기 중");
+
+      function printVideo(docs, count) {
+        const ul = document.getElementById("kakaoVideo");
+        for (let i = 0; i < count; i++) {
+          const li = document.createElement("li");
+          const uturl =
+            docs[i].url.slice(0, 23) + "embed/" + docs[i].url.slice(-11);
+          li.innerHTML = `<iframe width="560" height="315" src="${uturl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+          ul.appendChild(li);
+        }
+      }
+    </script>
+  </body>
+</html>
