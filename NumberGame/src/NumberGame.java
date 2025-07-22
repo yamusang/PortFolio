@@ -2,7 +2,6 @@ import java.util.Arrays;
 
 public class NumberGame {
     public static void main(String[] args) {
-        int ainums = (int) (Math.random() * 50);
         int[] gnums = new int[5];
         boolean a = true;
         do {
@@ -23,32 +22,35 @@ public class NumberGame {
                     int index = 0;
                     boolean b = true;
                     int count = 5;
+                    int ainums = (int) Math.ceil(Math.random() * 50);
                     while (b) {
-                        
-                            gnums[index] = Integer
-                                    .parseInt(System.console().readLine("너 휴먼 생각한 숫자 입력(남은 기회 : %d) >>>", count));
-                            count = count - 1;
-                            gv.setDoin(1);
 
-                            if (gnums[index] > ainums) {
-                                System.out.println("아닙니다. 더 작은 값입니다.");
-                            } else if (gnums[index] < ainums) {
-                                System.out.println("아닙니다. 더 큰 값입니다.");
-                            } else if (gnums[index] == ainums) {
-                                System.out.println("딩동댕!! 정답입니다.");
-                                gv.setIsOk(true);
-                                System.out.printf("✔정답:%d 시도횟수:%d\n", ainums, gv.getDoin());
-                                System.out.println("✔입력한 숫자 : " + Arrays.toString(gnums));
-                                System.out.println("숫자 맞추기 성공!!");
-                                b=false;
-                            }
+                        System.out.println(ainums);
 
-                            index++;
-                            if (index == 5) {
-                                b = false;
-                            }
+                        gnums[index] = Integer
+                                .parseInt(System.console().readLine("너 휴먼 생각한 숫자 입력(남은 기회 : %d) >>>", count));
+                        count = count - 1;
+                        gv.setDoin(1);
 
-                        if (gnums[index-1] != ainums && count == 0) {
+                        if (gnums[index] > ainums) {
+                            System.out.println("아닙니다. 더 작은 값입니다.");
+                        } else if (gnums[index] < ainums) {
+                            System.out.println("아닙니다. 더 큰 값입니다.");
+                        } else if (gnums[index] == ainums) {
+                            System.out.println("딩동댕!! 정답입니다.");
+                            gv.setIsOk(true);
+                            System.out.printf("✔정답:%d 시도횟수:%d\n", ainums, gv.getDoin());
+                            System.out.println("✔입력한 숫자 : " + Arrays.toString(gnums));
+                            System.out.println("숫자 맞추기 성공!!");
+                            b = false;
+                        }
+
+                        index++;
+                        if (index == 5) {
+                            b = false;
+                        }
+
+                        if (gnums[index - 1] != ainums && count == 0) {
                             System.out.printf("✔정답:%d 시도횟수:%d\n", ainums, gv.getDoin());
                             System.out.println("✔입력한 숫자 : " + Arrays.toString(gnums));
                             System.out.println("실패!! 주어진 기회를 다 쓰셨습니다. 게임을 다시 시작하세요.!!");
@@ -56,14 +58,15 @@ public class NumberGame {
 
                         }
                     }
-                       
 
-                    
                     System.out.println("GameValue 객체 확인");
                     System.out
-                            .println("gamer : " + gv.getGamer() + ", 시도횟수 : " + gv.getDoin() + ", 성공여부 : " + gv.getIsOk());
-                    if (index > 4)
+                            .println("gamer : " + gv.getGamer() + ", 시도횟수 : " + gv.getDoin() + ", 성공여부 : "
+                                    + gv.getIsOk());
+                    if (index > 4) {
                         index = 0;
+                        ainums = (int) Math.ceil(Math.random() * 50);
+                    }
                     break;
             }
         } while (a);
