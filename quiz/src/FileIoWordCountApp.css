@@ -1,0 +1,101 @@
+/* src/App.css */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #20232a; /* 어두운 배경색 */
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34; /* 리액트 공식 사이트 헤더 배경색 */
+  padding: 40px 20px;
+  border-bottom: 1px solid #3d4148;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #61dafb; /* 리액트 대표 색상 */
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* 파일 입력 버튼 커스텀 스타일 */
+.file-input-container {
+  margin: 20px 0;
+}
+
+.file-input {
+  display: none; /* 기본 input 숨기기 */
+}
+
+.file-label {
+  background-color: #61dafb;
+  color: #282c34;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+  background-color: #ffffff;
+}
+
+/* 분석 결과 스타일 */
+.result-container {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #20232a;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.result-container p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+/* 파일 내용 표시 영역 */
+.content-display {
+  padding: 20px;
+  text-align: left;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #282c34;
+  border: 1px solid #3d4148;
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+/* pre 태그 스타일링 (공백 및 줄바꿈 유지) */
+pre {
+  white-space: pre-wrap; /* 자동으로 줄바꿈 */
+  word-wrap: break-word; /* 긴 단어가 영역을 벗어나지 않도록 함 */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* 강조 표시 스타일 */
+.highlight {
+  color: #61dafb; /* 리액트 대표 색상 */
+  font-weight: bold;
+}
+
+.placeholder {
+  color: #888;
+  font-style: italic;
+}
